@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<meta charset="UTF-8">
+<html lang= "pt-br">
+
+  <head>
+    <title>Estoque</title>
+    <link rel="stylesheet" href="style.css">
+  </head>
+
+  <body>
+    <main>
+      
+
+      
+      
+    </main>
+  </body>
+</html>
+
+
+<script>
+
+  var canvas = document.getElementById("canvas"),
+    ctx = canvas.getContext("2d");
+
+canvas.width = 903;
+canvas.height = 657;
+
+
+var background = new Image();
+background.src = "estantes.jpg";
+
+// Make sure the image is loaded first otherwise nothing will draw.
+background.onload = function(){
+    ctx.drawImage(background,0,0);   
+}
+
+// Draw whatever else over top of it on the canvas.
+</script>
