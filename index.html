@@ -5,13 +5,15 @@
   <head>
     <title>Estoque</title>
     <link rel="stylesheet" href="style.css">
+    <!-- <link scrip src="locacoes.js"> -->
+    
   </head>
 
   <body>
     <main>
-      
+      <!-- Redimencionar -->
+      <canvas width="1200" height="800"></canvas>
 
-      
       
     </main>
   </body>
@@ -20,12 +22,8 @@
 
 <script>
 
-  var canvas = document.getElementById("canvas"),
-    ctx = canvas.getContext("2d");
-
-canvas.width = 903;
-canvas.height = 657;
-
+  var canvas = document.querySelector("canvas");
+   ctx = canvas.getContext("2d");
 
 var background = new Image();
 background.src = "estantes.jpg";
@@ -36,4 +34,8 @@ background.onload = function(){
 }
 
 // Draw whatever else over top of it on the canvas.
+
+  //ainda n funciona
+canvas.fillStyle = "red";
+	ctx.fillRect (0, 0, 1200, 800);
 </script>
