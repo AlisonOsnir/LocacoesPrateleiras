@@ -1,41 +1,67 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
-<html lang= "pt-br">
+<html lang="pt-br">
 
-  <head>
-    <title>Estoque</title>
-    <link rel="stylesheet" href="style.css">
-    <!-- <link scrip src="locacoes.js"> -->
-    
-  </head>
+<head>
+  <title>Estoque</title>
+  <link rel="stylesheet" href="style.css">
 
-  <body>
-    <main>
-      <!-- Redimencionar -->
-      <canvas width="1200" height="800"></canvas>
+</head>
 
-      
-    </main>
-  </body>
+<body>
+  <main>
+    <!-- Redimencionar para img correta -->
+    <canvas width="1200" height="500"></canvas>
+    <input type="text-box" placeholder="Teste selec. alocaçao">
+
+  </main>
+</body>
+
 </html>
 
-
 <script>
+  let disp = true;
 
   var canvas = document.querySelector("canvas");
-   ctx = canvas.getContext("2d");
+  var ctx = canvas.getContext("2d");
 
-var background = new Image();
-background.src = "estantes.jpg";
+  var background = new Image();
+  background.src = "estantes.jpg";
 
-// Make sure the image is loaded first otherwise nothing will draw.
-background.onload = function(){
-    ctx.drawImage(background,0,0);   
-}
+  background.onload = function () {
+    ctx.drawImage(background, 0, 0);
 
-// Draw whatever else over top of it on the canvas.
+    //pintaArea=input (escolhe alocaçao, retorna as coords. no fillrect) se disponivel=true fillStyle ALPHA
+    //Chamada p/ teste
+    pintaArea(...ph101a.area);
+  }
 
-  //ainda n funciona - retangulos rgba, azul se false, amarelo se true
-canvas.fillStyle = "red";
-	ctx.fillRect (0, 0, 1200, 800);
+  function pintaArea(x, y, w, h) {
+    if (disp) {
+      ctx.fillstyle = "blue";
+      ctx.fillRect(x, y, w, h);
+    } else {
+      ctx.fillstyle = "yellow";
+      ctx.fillRect(x, y, w, h);
+    }
+  }
+
+// Objetos
+  let ph101a = {
+    area: [16, 12, 65, 92],
+    disp: true,
+    produto: null,
+  }
+
+  let ph101b = {
+    area: [80, 12, 65, 92],
+    disp: true,
+    produto: null,
+  }
+  let ph101c = {
+    area: [145, 12, 65, 92],
+    disp: true,
+    produto: null,
+  }
+
 </script>
