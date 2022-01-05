@@ -11,10 +11,15 @@
 <body>
   <main>
     <h1 class="tituloPrincipal">LOCAÇÕES PTH</h1>
+
     <canvas class="background" width="940" height="529">
       your browser does not support HTML5 Canvas.
     </canvas>
-    <input type="text-box" placeholder="Teste selec. alocaçao">
+
+    <form id="formulario">
+      <input type="text-box" id="campo" placeholder="Teste selec. alocaçao">
+      <input type="submit" id="enviar" value="enviar">
+    </form>
 
   </main>
 </body>
@@ -22,31 +27,52 @@
 </html>
 
 <script>
-
   // Objetos
-  let ph101a = {
-    area: [50, 80, 48, 70],
+  let ph10 = {
+    area: [50, 79, 149, 315],
     disp: true,
     produto: null,
   }
 
-  let ph101b = {
-    area: [100, 80, 48, 70],
+  let ph101 = {
+    area: [50, 79, 149, 71],
     disp: true,
     produto: null,
   }
-  let ph101c = {
-    area: [150, 80, 48, 70],
+  let ph101a = {
+    area: [50, 79, 74, 71],
+    disp: true,
+    produto: null,
+  }
+  let ph101b = {
+    area: [125, 79, 74, 71],
+    disp: true,
+    produto: null,
+  }
+
+  let ph102 = {
+    area: [50, 157, 149, 71],
+    disp: true,
+    produto: null,
+  }
+  let ph102a = {
+    area: [50, 157, 74, 71],
+    disp: true,
+    produto: null,
+  }
+  let ph102b = {
+    area: [125, 157, 74, 71],
     disp: true,
     produto: null,
   }
 
   //Canvas
-
   var canvas = document.querySelector("canvas");
   var ctx = canvas.getContext("2d");
 
   var canvas2 = document.createElement('canvas')
+  canvas2.setAttribute("width", "940");
+  canvas2.setAttribute("height", "529");
   var ctx2 = canvas2.getContext('2d');
 
   var background = new Image();
@@ -58,20 +84,35 @@
 
   }
 
-  //pintaArea()=input (escolhe alocaçao, retorna as coords e disp no pintaArea) se disp==false fillStyle alpha yellow
-  
-  ctx2.fillStyle = 'rgba(255, 255, 0, 0.6)';
-  let disp = false
-  //ph101a.disp
-  //Chamada p/ teste
-  pintaArea(disp, ...ph101a.area);
-  pintaArea(disp, ...ph101c.area);
+  //Chamadas p/ teste
 
-  function pintaArea(disp, x, y, w, h) {
+  //input text-box
+  let form = document.getElementById("formulario")
+  let campo = document.getElementById("campo");
+
+  form.addEventListener("submit", function (e) {
+    var teste = campo.value
+    alert(teste1)
+    // impede o envio do form
+    e.preventDefault();
+  });
+  
+  var locacao = ph102b
+  let disp = false
+  //substituir disp por locacao.disp
+  pintaArea(...locacao.area, disp, locacao.produto);
+  
+  console.log(typeof (locacao))
+
+  function pintaArea(x, y, w, h, disp, produto) {
     if (disp == false) {
+      ctx2.fillStyle = 'rgba(255, 255, 0, 0.6)';
       ctx2.fillRect(x, y, w, h);
+      ctx2.font = 'bold 13px calibri, sans-serif';
+      ctx2.fillStyle = 'black';
+      ctx2.fillText(produto, x + 8, y + 60);
+
     }
   }
-
 
 </script>
