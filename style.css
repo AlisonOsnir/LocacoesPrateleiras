@@ -1,17 +1,9 @@
 .tituloPrincipal {
     font-family: 'Work Sans', sans-serif;
     font-size: 33px;
-    margin: 8px auto;
+    margin: 0px auto;
+    margin-top: 16px;
     text-align: center;
-}
-
-main input {
-    background-color: rgb(159, 214, 250);
-    margin: 0 auto;
-    text-align: center;
-    display: block;
-    font-weight: bold;
-    border-radius: 5px;
 }
 
 .background {
