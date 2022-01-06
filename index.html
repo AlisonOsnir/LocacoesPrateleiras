@@ -27,44 +27,52 @@
 </html>
 
 <script>
-  // Objetos
+  // let locacoesPTH = {
   let ph10 = {
+    nome: "PH10",
     area: [50, 79, 149, 315],
     disp: true,
     produto: null,
   }
 
   let ph101 = {
+    nome: "PH101",
     area: [50, 79, 149, 71],
     disp: true,
     produto: null,
   }
   let ph101a = {
+    nome: "PH101A",
     area: [50, 79, 74, 71],
     disp: true,
     produto: null,
   }
   let ph101b = {
+    nome: "PH101B",
     area: [125, 79, 74, 71],
     disp: true,
     produto: null,
   }
 
   let ph102 = {
+    nome: "PH102",
     area: [50, 157, 149, 71],
     disp: true,
     produto: null,
   }
   let ph102a = {
+    nome: "PH102A",
     area: [50, 157, 74, 71],
     disp: true,
     produto: null,
   }
   let ph102b = {
+    nome: "PH102B",
     area: [125, 157, 74, 71],
     disp: true,
     produto: null,
   }
+  //}
 
   //Canvas
   var canvas = document.querySelector("canvas");
@@ -80,39 +88,55 @@
 
   background.onload = function () {
     ctx.drawImage(background, 0, 0);
-    ctx.drawImage(canvas2, 0, 0,);
+    //Canvas2 created on pintaArea
+    //ctx.drawImage(canvas2, 0, 0,);
 
   }
 
-  //Chamadas p/ teste
+  //DIVISÂO DE TESTE COMPORTAMENTO
 
-  //input text-box
-  let form = document.getElementById("formulario")
-  let campo = document.getElementById("campo");
+  // //input text-box
+  // let form = document.getElementById("formulario")
+  // let campo = document.getElementById("campo");
 
-  form.addEventListener("submit", function (e) {
-    var teste = campo.value
-    alert(teste1)
-    // impede o envio do form
-    e.preventDefault();
-  });
+  // form.addEventListener("submit", function (e) {
+  //   var teste = campo.value
+  //   alert(typeof (teste))
+  //   // impede o envio do form
+  //   e.preventDefault();
+  // });
+
+  //SUBSTITUIR disp por locacao.disp
+  function pintaArea(x, y, w, h, produto) {
+    ctx.fillStyle = 'rgba(255, 255, 0, 0.6)';
+    ctx.drawImage(canvas2, 0, 0,)
+    ctx.fillRect(x, y, w, h);
+    ctx.font = 'bold 13px calibri, sans-serif';
+    ctx.fillStyle = 'black';
+    ctx.fillText(produto, x + 8, y + 60);
+  }
   
-  var locacao = ph102b
-  let disp = false
-  //substituir disp por locacao.disp
-  pintaArea(...locacao.area, disp, locacao.produto);
-  
-  console.log(typeof (locacao))
-
-  function pintaArea(x, y, w, h, disp, produto) {
+  function tornaIndisp(locacao) {
     if (disp == false) {
-      ctx2.fillStyle = 'rgba(255, 255, 0, 0.6)';
-      ctx2.fillRect(x, y, w, h);
-      ctx2.font = 'bold 13px calibri, sans-serif';
-      ctx2.fillStyle = 'black';
-      ctx2.fillText(produto, x + 8, y + 60);
-
+      pintaArea(...locacao.area, locacao.produto)
     }
   }
-
+  
+  function selecionaArea(evento) {
+    let x = evento.pageX - canvas.offsetLeft;
+    let y = evento.pageY - canvas.offsetTop;
+    if (x >= locacao.area[0] && x <= locacao.area[0]+locacao.area[2]
+    && y >= locacao.area[1] && y <= locacao.area[1]+locacao.area[3]) {
+      console.log(`Locação ${locacao.nome} selecionada!`);
+      //teste ctx2 not working yet
+      tornaIndisp(locacao);
+      
+    }
+  }
+  //onClick em area abre pop-up asking if user want to edit location, if yes, open formulary where input get push to object.disp e produto.
+  var locacao = ph101
+  let disp = false
+  canvas.onclick = selecionaArea;
+ 
+  
 </script>
