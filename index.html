@@ -27,54 +27,193 @@
 </html>
 
 <script>
-  // let locacoesPTH = {
-  let ph10 = {
-    nome: "PH10",
-    area: [50, 79, 149, 315],
-    disp: true,
-    produto: null,
+  //OBJETOS
+  const locacoesObj = {
+    0: {
+      nome: "PH10",
+      area: [50, 79, 149, 315],
+      disp: true,
+      produto: undefined,
+    },
+    1: {
+      nome: "PH20",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    2: {
+      nome: "PH30",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    3: {
+      nome: "PH40",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    4: {
+      nome: "PH50",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    5: {
+      nome: "PH101",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    6: {
+      nome: "PH102",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    7: {
+      nome: "PH103",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    8: {
+      nome: "PH104",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    9: {
+      nome: "PH201",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    10: {
+      nome: "PH202",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    11: {
+      nome: "PH203",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    12: {
+      nome: "PH204",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    13: {
+      nome: "PH301",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    14: {
+      nome: "PH302",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    15: {
+      nome: "PH303",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    16: {
+      nome: "PH304",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    17: {
+      nome: "PH401",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    18: {
+      nome: "PH402",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    19: {
+      nome: "PH403",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    20: {
+      nome: "PH404",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    21: {
+      nome: "PH501",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    22: {
+      nome: "PH502",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    23: {
+      nome: "PH503",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    24: {
+      nome: "PH504",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    25: {
+      nome: "PH505",
+      area: undefined,
+      disp: true,
+      produto: undefined,
+    },
+    //A e B
+    26: {
+      nome: "PH101A",
+      area: [50, 79, 74, 71],
+      disp: false,
+      produto: undefined,
+    },
+
+    27: {
+      nome: "PH101B",
+      area: [125, 79, 74, 71],
+      disp: false,
+      produto: undefined,
+    },
+    28: {
+      nome: "PH102A",
+      area: [50, 157, 74, 71],
+      disp: false,
+      produto: undefined,
+    },
+    29: {
+      nome: "PH102B",
+      area: [125, 157, 74, 71],
+      disp: false,
+      produto: undefined,
+    },
   }
 
-  let ph101 = {
-    nome: "PH101",
-    area: [50, 79, 149, 71],
-    disp: true,
-    produto: null,
-  }
-  let ph101a = {
-    nome: "PH101A",
-    area: [50, 79, 74, 71],
-    disp: true,
-    produto: null,
-  }
-  let ph101b = {
-    nome: "PH101B",
-    area: [125, 79, 74, 71],
-    disp: true,
-    produto: null,
-  }
-
-  let ph102 = {
-    nome: "PH102",
-    area: [50, 157, 149, 71],
-    disp: true,
-    produto: null,
-  }
-  let ph102a = {
-    nome: "PH102A",
-    area: [50, 157, 74, 71],
-    disp: true,
-    produto: null,
-  }
-  let ph102b = {
-    nome: "PH102B",
-    area: [125, 157, 74, 71],
-    disp: true,
-    produto: null,
-  }
-  //}
-
-  //Canvas
+  //CANVAS
   var canvas = document.querySelector("canvas");
   var ctx = canvas.getContext("2d");
 
@@ -88,12 +227,10 @@
 
   background.onload = function () {
     ctx.drawImage(background, 0, 0);
-    //Canvas2 created on pintaArea
-    //ctx.drawImage(canvas2, 0, 0,);
-
+    ctx.drawImage(canvas2, 0, 0,);
   }
 
-  //DIVISÂO DE TESTE COMPORTAMENTO
+  //TESTE INPUT
 
   // //input text-box
   // let form = document.getElementById("formulario")
@@ -106,37 +243,54 @@
   //   e.preventDefault();
   // });
 
-  //SUBSTITUIR disp por locacao.disp
-  function pintaArea(x, y, w, h, produto) {
-    ctx.fillStyle = 'rgba(255, 255, 0, 0.6)';
-    ctx.drawImage(canvas2, 0, 0,)
-    ctx.fillRect(x, y, w, h);
-    ctx.font = 'bold 13px calibri, sans-serif';
-    ctx.fillStyle = 'black';
-    ctx.fillText(produto, x + 8, y + 60);
-  }
-  
-  function tornaIndisp(locacao) {
-    if (disp == false) {
-      pintaArea(...locacao.area, locacao.produto)
+  //ok
+  function tornaIndisp(x, y, w, h, objeto, produto) {
+    if (objeto["disp"] == false) {
+      ctx.fillStyle = 'rgba(255, 255, 0, 0.5)';
+      //ctx2.drawImage(canvas2, 0, 0,)
+      ctx.fillRect(x, y, w, h);
+      ctx.font = 'bold 13px calibri, sans-serif';
+      ctx.fillStyle = 'black';
+      ctx.fillText(produto, x + 9, y + h / 1.25);
+
+      console.log(`${objeto["produto"]} oculpa a area!;
+      `);
     }
   }
-  
+
+  // NOT OK
   function selecionaArea(evento) {
     let x = evento.pageX - canvas.offsetLeft;
     let y = evento.pageY - canvas.offsetTop;
-    if (x >= locacao.area[0] && x <= locacao.area[0]+locacao.area[2]
-    && y >= locacao.area[1] && y <= locacao.area[1]+locacao.area[3]) {
-      console.log(`Locação ${locacao.nome} selecionada!`);
-      //teste ctx2 not working yet
-      tornaIndisp(locacao);
-      
+
+    for (let i = areasAB; i < arrayObjFilho.length; i++) {
+      if (x >= locacoesObj[i]["area"][0] && x <= locacoesObj[i]["area"][0] + locacoesObj[i]["area"][2]
+        && y >= locacoesObj[i]["area"][1] && y <= locacoesObj[i]["area"][1] + locacoesObj[i]["area"][3]) {
+        
+          console.log(`${locacoesObj[i]["nome"]} selecionada!`);
+          alert(`${locacoesObj[i]["nome"]} selecionada!`)
+        tornaIndisp(...locacoesObj[i]["area"], locacoesObj[i], locacoesObj[i]["produto"])
+      }
     }
   }
-  //onClick em area abre pop-up asking if user want to edit location, if yes, open formulary where input get push to object.disp e produto.
-  var locacao = ph101
-  let disp = false
+
+  //ok
+  function listaLoc() {
+    for (let i = 0; i < keyList.length; i++) {
+      if (arrayObjFilho.length < keyList.length) {
+        let objFilho = locacoesObj[i];
+        arrayObjFilho.push(objFilho)
+      }
+    }
+    //console.table(arrayObjFilho)
+  }
+
+  //VARIAVEIS E CHAMADAS
+  let arrayObjFilho = [];
+  let keyList = Object.keys(locacoesObj);
+  let areasAB = 26;
+
+  listaLoc(); //Gera array de Objestos filhos de locacoesObj em arrayObjFilho.
   canvas.onclick = selecionaArea;
- 
-  
+
 </script>
