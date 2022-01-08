@@ -1,6 +1,8 @@
+html {
+    font-family: 'Work Sans', sans-serif;
+}
 .tituloPrincipal {
     font-weight: bold;
-    font-family: 'Work Sans', sans-serif;
     font-size: 40px;
     margin: 0 auto;
     margin-top: 4%;
@@ -14,10 +16,10 @@
 
 #formulario {
     display: block;
-    width: 23%;
+    width: 300px;
     padding: 20px;
     margin: 2% auto;
-    background-color:rgb(142, 197, 214);
+    background-color: rgba(114, 159, 207, 0.781);
     border: 2px solid rgb(0,0,0);
     border-radius: 5%;
 }
@@ -42,7 +44,7 @@
     font-family: 'Work Sans', sans-serif;
 }
 
-#loc, #produto{
+#floc, #fprod{
     display: block;
     margin: 0 auto ;
     margin-bottom: 15px;
@@ -52,7 +54,7 @@
     font-size: 20px;
     text-align: center;
     text-transform: uppercase;
-    border: 1px solid lightslategray;
+    border: 1px solid rgb(113, 125, 136);
     border-radius: 5px;
     font-family: 'Work Sans', sans-serif;
 }
@@ -63,7 +65,7 @@
     font-family: 'Work Sans', sans-serif;
     font-weight: bold;
 }
-#status, #enviar {
+#fstatus, #enviar {
     margin: 0 auto;
     margin-bottom: 7px;
    
