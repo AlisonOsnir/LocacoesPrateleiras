@@ -1,9 +1,11 @@
 <!DOCTYPE html>
 <meta charset="UTF-8">
+<meta name="viewport" content="width=device-width">
 <html lang="pt-br">
 
 <head>
   <title>Locações PTH</title>
+  <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="style.css">
 
 </head>
@@ -12,13 +14,27 @@
   <main>
     <h1 class="tituloPrincipal">LOCAÇÕES PTH</h1>
 
-    <canvas class="background" width="940" height="529">
+    <canvas class="backgroundimg" width="940" height="529">
       your browser does not support HTML5 Canvas.
     </canvas>
 
     <form id="formulario">
-      <input type="text-box" id="campo" placeholder="Teste selec. alocaçao">
+      <label for="loc" id="labelloc">Locação</label>
+      <input type="text" id="loc" name="loc">
+      <label for="produto" id="labelcod">Cod. produto</label>
+      <input type="text" id="produto" name="produto">
+      <p>status do material</p>
+      <div class="radio">
+        <input type="radio" id="status" name="status" value="Liberado">
+        <label for="Liberado">Liberado</label><br>
+        <input type="radio" id="status" name="status" value="Produção">
+        <label for="Produção" id=>Produção</label><br>
+        <input type="radio" id="status" name="status" value="Parado">
+        <label for="Parado">Parado</label><br><br>
+      </div>
+
       <input type="submit" id="enviar" value="enviar">
+
     </form>
 
   </main>
