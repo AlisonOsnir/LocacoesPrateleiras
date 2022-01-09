@@ -418,11 +418,4 @@ let locacoesObj = {
       disp: true,
       produto: undefined,
     },
-    //teste
-    68: {
-      nome: "PH",
-      area: [811.7, 331, 76, 62],
-      disp: true,
-      produto: undefined,
-    },
   }

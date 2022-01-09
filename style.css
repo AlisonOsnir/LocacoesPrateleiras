@@ -19,60 +19,69 @@ html {
     width: 300px;
     padding: 20px;
     margin: 2% auto;
-    background-color: rgba(114, 159, 207, 0.781);
-    border: 2px solid rgb(0,0,0);
+    background-color: rgb(178, 202, 230);
+    border: 2px dotted rgb(104, 104, 104);
     border-radius: 5%;
 }
 
-#formulario p {
-    text-transform: uppercase;
-    font-size: 20px; 
-    font-weight: bold;
-    font-family: 'Work Sans', sans-serif;
-    text-align: center;
-    margin-bottom: 15px;
-}
 
 #labelloc, #labelcod {
     display: block;
     margin: 0 auto;
     padding-bottom: 3px;
     font-weight: bold;
-    font-size: 28px;
+    font-size: 30px;
     text-align: center;
     text-transform: uppercase;
-    font-family: 'Work Sans', sans-serif;
 }
 
-#floc, #fprod{
+#floc {display: none;}
+
+#flocname, #fprod{
     display: block;
     margin: 0 auto ;
-    margin-bottom: 15px;
+    margin-bottom: 20px;
     width: 75%;
     height: 40px;
+    color: rgb(0, 183, 255);
     font-weight: bold;
-    font-size: 20px;
+    font-size: 28px;
     text-align: center;
-    text-transform: uppercase;
-    border: 1px solid rgb(113, 125, 136);
+    border: 1px solid rgb(85, 94, 102);
     border-radius: 5px;
-    font-family: 'Work Sans', sans-serif;
+    transition: 300ms;
 }
+#flocname {
+    color: rgb(28, 143, 209);
+}
+
+#flocname:hover, #fprod:hover {
+    background-color: rgb(255, 254, 181);
+}
+
+#formulario p {
+    text-transform: uppercase;
+    font-size: 22px; 
+    font-weight: bold;
+    text-align: center;
+    margin: 15px 0;
+}
+
 .radio {
     display: block;
-    width: 50%;
-    margin: 0 35%;
-    font-family: 'Work Sans', sans-serif;
+    margin-left: 28%;
+    text-transform: uppercase;
     font-weight: bold;
 }
-#fstatus, #enviar {
-    margin: 0 auto;
-    margin-bottom: 7px;
-   
+
+#fstatus{
+    width: 20px;
+    height: 15px;;
 }
-#enviar {
-    text-transform: uppercase;
+
+#salvar {
     width: 30%;
+    height: 25px;
     margin: 0 auto;
     display: block;
 }
