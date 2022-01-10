@@ -14,7 +14,7 @@
 
 <body>
   <main>
-    <h1 class="tituloPrincipal">LOCAÇÕES PTH</h1>
+    <h1>locação pth</h1>
     <canvas class="backgroundimg" width="940" height="529">
       your browser does not support HTML5 Canvas.
     </canvas>
@@ -22,23 +22,20 @@
     <form id="formulario">
       <label for="floc" id="labelloc">Locação</label>
       <input type="text" id="floc" name="floc" required>
-      <input type="text" id="flocname" name="flocname" readOnly=true required>
+      <input type="text" id="flocname" name="flocname" readOnly=true onClick="alert('Selecione uma locação acima!')" required>
 
       <label for="fprod" id="labelcod">Cod. produto</label>
       <input type="text" id="fprod" name="fprod" required>
 
-      <p>status do material</p>
-      <section class="radio">
-        <input type="radio" id="fstatus" name="fstatus" value="Liberado">
-        <label for="Liberado" id="fstatus">Liberado</label><br>
+      <fieldset>
+        <legend>status do material</legend>
+        <label for="radio-liberado"><input type="radio" name="status" value="liberado" id="radio-liberado"> liberado</label>
+        <label for="radio-producao"><input type="radio" name="status" value="producao" id="radio-producao"> produção</label>
+        <label for="radio-parado"><input type="radio" name="status" value="parado" id="radio-parado"> parado</label>
+      </fieldset>
 
-        <input type="radio" id="fstatus" name="fstatus" value="Produção">
-        <label for="Produção" id="fstatus">Produção</label><br>
-
-        <input type="radio" id="fstatus" name="fstatus" value="Parado">
-        <label for="Parado" id="fstatus">Parado</label><br><br>
-      </section>
       <input type="submit" id="salvar" value="Salvar">
+      <button type="reset" id="limpar">Limpar</button>
     </form>
   </main>
 </body>
@@ -64,21 +61,33 @@
   }
 
   //INPUT_EVENTO FORMULÁRIO
-  let form = document.getElementById('formulario');
+  let form = document.getElementById("formulario");
   let floc = document.getElementById("floc");
   let flocname = document.getElementById("flocname");
   let fprod = document.getElementById("fprod");
-  let fstatus = document.getElementById("fstatus");
+  let fstatus = undefined;
+
+  function displayRadioValue() {
+    var radio = document.getElementsByName('status');
+
+    for (i = 0; i < radio.length; i++) {
+      if (radio[i].checked) {
+        fstatus = radio[i].value;
+      }
+    }
+  }
 
   form.addEventListener('submit', function (evt) {
     evt.preventDefault()
 
     let i = areaSelecionada;
+    //limpar area se form vazio
     locacoesObj[i]["produto"] = fprod.value;
-    locacoesObj[i]["status"] = fstatus.value;
-    if (locacoesObj[i]["status"]) { locacoesObj[i]["disp"] = false };
+    displayRadioValue()
+    locacoesObj[i]["status"] = fstatus;
 
     tornaIndisp(...locacoesObj[i]['area'], locacoesObj[i]['produto'])
+    console.log(locacoesObj[i])
   });
 
   //VARIAVEIS E CHAMADAS
@@ -86,6 +95,6 @@
   const keyList = Object.keys(locacoesObj);
 
   canvas.onclick = selecionaArea;
-  //varreduraDisp()
+  varreduraDisp()
 
 </script>
