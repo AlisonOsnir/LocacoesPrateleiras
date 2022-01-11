@@ -7,8 +7,8 @@
   <title>Locações PTH</title>
   <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="style.css">
-  <script src="function.js"></script>
-  <script src="locacoesobj.js"></script>
+  <script src="script.js"></script>
+  <script src="object.js"></script>
 
 </head>
 
@@ -25,7 +25,7 @@
       <input type="text" id="flocname" name="flocname" readOnly=true onClick="alert('Selecione uma locação acima!')" required>
 
       <label for="fprod" id="labelcod">Cod. produto</label>
-      <input type="text" id="fprod" name="fprod" required>
+      <input type="text" id="fprod" name="fprod">
 
       <fieldset>
         <legend>status do material</legend>
@@ -80,14 +80,21 @@
   form.addEventListener('submit', function (evt) {
     evt.preventDefault()
 
-    let i = areaSelecionada;
-    //limpar area se form vazio
-    locacoesObj[i]["produto"] = fprod.value;
+    locacoesObj[indexObj]["produto"] = fprod.value;
     displayRadioValue()
-    locacoesObj[i]["status"] = fstatus;
+    locacoesObj[indexObj]["status"] = fstatus;
+    tornaIndisp(...locacoesObj[indexObj]['area'], locacoesObj[indexObj]['produto'])
+    form.reset();
+    
+    console.log(locacoesObj[indexObj])
+    //teste Localstorage armazena key=indexObj e value=JSON.stringify(locacoesObj[indexObj]) --- Retorna Objeto
+    let testeStorarge = JSON.stringify(locacoesObj[indexObj]);
+    localStorage.setItem(indexObj, testeStorarge);
 
-    tornaIndisp(...locacoesObj[i]['area'], locacoesObj[i]['produto'])
-    console.log(locacoesObj[i])
+    let testeRetornoStorage = localStorage.getItem(indexObj)
+    console.log(JSON.parse(testeRetornoStorage));
+
+    //fazer varruduraDisp() puxar apenas do localstorage ja que o obj literal sempre começa s/ status.
   });
 
   //VARIAVEIS E CHAMADAS
@@ -96,5 +103,5 @@
 
   canvas.onclick = selecionaArea;
   varreduraDisp()
-
+  
 </script>
