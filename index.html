@@ -39,6 +39,7 @@
 
       <input type="submit" id="salvar" value="Salvar">
       <button type="reset" id="limpar">Limpar</button>
+      <p>*Para remover salve sem cod. produto e status.</p>
     </form>
   </main>
 </body>
@@ -75,8 +76,8 @@
   let fprod = document.getElementById("fprod");
   let fstatus = undefined;
 
-  form.addEventListener('submit', function (evt) {
-    evt.preventDefault()
+  form.addEventListener('submit', function (event) {
+    event.preventDefault()
     statusRadioValue();
     locacoesObj[indexObj]["produto"] = fprod.value;
     locacoesObj[indexObj]["status"] = fstatus;
@@ -85,6 +86,7 @@
     let objArmazenado = JSON.stringify(locacoesObj[indexObj]);
     localStorage.setItem(indexObj, objArmazenado);
     window.location.reload();
+    window.scrollTo(0, 0)
   });
 
   varreduraIndispStorage()

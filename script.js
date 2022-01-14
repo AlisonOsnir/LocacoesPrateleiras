@@ -34,7 +34,7 @@ function selecionaArea(evento) {
             floc.value = indexObj;
             flocname.value = locacoesObj[indexObj]["nome"];
             fprod.focus();
-            console.log(`Indice ${indexObj}, locaçao ${locacoesObj[indexObj]["nome"]} foi selecionado!`);
+            //console.log(`Indice ${indexObj}, locaçao ${locacoesObj[indexObj]["nome"]} foi selecionado!`);
         }
     }
 }

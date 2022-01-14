@@ -82,3 +82,7 @@ form fieldset label{
     margin: 7px 28px;
     display: inline-block;
 }
+
+form p {
+    font-size: 14px;
+}
