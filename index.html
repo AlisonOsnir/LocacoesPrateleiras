@@ -22,15 +22,18 @@
     <form id="formulario">
       <label for="floc" id="labelloc">Locação</label>
       <input type="text" id="floc" name="floc" required>
-      <input type="text" id="flocname" name="flocname" readOnly=true onClick="alert('Selecione uma locação acima!')" required>
+      <input type="text" id="flocname" name="flocname" readOnly=true onClick="alert('Selecione uma locação acima!')"
+        required>
 
       <label for="fprod" id="labelcod">Cod. produto</label>
-      <input type="text" id="fprod" name="fprod">
+      <input type="text" id="fprod" name="fprod" style='text-transform:uppercase'>
 
       <fieldset>
         <legend>status do material</legend>
-        <label for="radio-liberado"><input type="radio" name="status" value="liberado" id="radio-liberado"> liberado</label>
-        <label for="radio-producao"><input type="radio" name="status" value="producao" id="radio-producao"> produção</label>
+        <label for="radio-liberado"><input type="radio" name="status" value="liberado" id="radio-liberado">
+          liberado</label>
+        <label for="radio-producao"><input type="radio" name="status" value="producao" id="radio-producao">
+          produção</label>
         <label for="radio-parado"><input type="radio" name="status" value="parado" id="radio-parado"> parado</label>
       </fieldset>
 
@@ -43,6 +46,11 @@
 </html>
 
 <script>
+  const areasAB = 26;
+  const keyList = Object.keys(locacoesObj);
+  const indicesArmazenados = [];
+
+
   //CANVAS
   var canvas = document.querySelector("canvas");
   var ctx = canvas.getContext("2d");
@@ -67,41 +75,19 @@
   let fprod = document.getElementById("fprod");
   let fstatus = undefined;
 
-  function displayRadioValue() {
-    var radio = document.getElementsByName('status');
-
-    for (i = 0; i < radio.length; i++) {
-      if (radio[i].checked) {
-        fstatus = radio[i].value;
-      }
-    }
-  }
-
   form.addEventListener('submit', function (evt) {
     evt.preventDefault()
-
+    statusRadioValue();
     locacoesObj[indexObj]["produto"] = fprod.value;
-    displayRadioValue()
     locacoesObj[indexObj]["status"] = fstatus;
-    tornaIndisp(...locacoesObj[indexObj]['area'], locacoesObj[indexObj]['produto'])
-    form.reset();
-    
-    console.log(locacoesObj[indexObj])
-    //teste Localstorage armazena key=indexObj e value=JSON.stringify(locacoesObj[indexObj]) --- Retorna Objeto
-    let testeStorarge = JSON.stringify(locacoesObj[indexObj]);
-    localStorage.setItem(indexObj, testeStorarge);
+    //form.reset();
 
-    let testeRetornoStorage = localStorage.getItem(indexObj)
-    console.log(JSON.parse(testeRetornoStorage));
-
-    //fazer varruduraDisp() puxar apenas do localstorage ja que o obj literal sempre começa s/ status.
+    let objArmazenado = JSON.stringify(locacoesObj[indexObj]);
+    localStorage.setItem(indexObj, objArmazenado);
+    window.location.reload();
   });
 
-  //VARIAVEIS E CHAMADAS
-  const areasAB = 26;
-  const keyList = Object.keys(locacoesObj);
-
+  varreduraIndispStorage()
   canvas.onclick = selecionaArea;
-  varreduraDisp()
-  
+
 </script>
