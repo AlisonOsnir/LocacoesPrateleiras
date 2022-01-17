@@ -79,9 +79,8 @@
   form.addEventListener('submit', function (event) {
     event.preventDefault()
     statusRadioValue();
-    locacoesObj[indexObj]["produto"] = fprod.value;
+    locacoesObj[indexObj]["produto"] = fprod.value.toUpperCase();
     locacoesObj[indexObj]["status"] = fstatus;
-    //form.reset();
 
     let objArmazenado = JSON.stringify(locacoesObj[indexObj]);
     localStorage.setItem(indexObj, objArmazenado);

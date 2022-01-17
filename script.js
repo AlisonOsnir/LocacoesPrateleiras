@@ -1,4 +1,6 @@
 let indexObj = undefined;
+let colors = [['yellow'],['lightgreen'],['crimson']]
+let color;
 
 function varreduraIndispStorage() {
     for (let i = 0; i < keyList.length; i++) {
@@ -8,14 +10,21 @@ function varreduraIndispStorage() {
             if (objRetornado['status'] == null) {
                 localStorage.removeItem(i);
             } else {
-                tornaIndisp(...objRetornado['area'], objRetornado['produto']);
+                changeColor(objRetornado['status']);
+                tornaIndisp(...objRetornado['area'], objRetornado['produto'], color);
             }
         }
     }
 }
 
-function tornaIndisp(x, y, w, h, produto) {
-    ctx2.fillStyle = 'rgba(255, 255, 0)';
+function changeColor (statusObj) {
+    if (statusObj == 'liberado'){ color = colors[0]};
+    if (statusObj == 'producao'){ color = colors[1]};
+    if (statusObj == 'parado'){ color = colors[2]};
+}
+
+function tornaIndisp(x, y, w, h, produto, color) {
+    ctx2.fillStyle = color;
     ctx2.fillRect(x, y, w, h);
     ctx2.font = 'bold 13px calibri, sans-serif';
     ctx2.fillStyle = 'black';
