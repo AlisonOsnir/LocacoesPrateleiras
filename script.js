@@ -1,6 +1,8 @@
-let indexObj = undefined;
-let colors = [['yellow'],['lightgreen'],['crimson']]
+let indexObj;
+const colors = [['yellow'],['lightgreen'],['crimson']]
 let color;
+const InicioBotoesCanvas = 70;
+const quantidadeBotoesCanvas = 5;
 
 function varreduraIndispStorage() {
     for (let i = 0; i < keyList.length; i++) {
@@ -35,17 +37,29 @@ function selecionaArea(evento) {
     let x = evento.pageX - canvas.offsetLeft;
     let y = evento.pageY - canvas.offsetTop;
 
-    for (let i = areasAB; i < keyList.length; i++) {
+    for (let i = areasAB; i < keyList.length - quantidadeBotoesCanvas; i++) {
         if (x >= locacoesObj[i]["area"][0] && x <= locacoesObj[i]["area"][0] + locacoesObj[i]["area"][2]
             && y >= locacoesObj[i]["area"][1] && y <= locacoesObj[i]["area"][1] + locacoesObj[i]["area"][3]) {
 
             indexObj = i;
-            floc.value = indexObj;
-            flocname.value = locacoesObj[indexObj]["nome"];
-            fprod.focus();
-            //console.log(`Indice ${indexObj}, locaçao ${locacoesObj[indexObj]["nome"]} foi selecionado!`);
+            preparaForm()
         }
     }
+    for (i = InicioBotoesCanvas; i < (InicioBotoesCanvas + quantidadeBotoesCanvas); i++) {
+        if (x >= locacoesObj[i]["area"][0] && x <= locacoesObj[i]["area"][0] + locacoesObj[i]["area"][2]
+        && y >= locacoesObj[i]["area"][1] && y <= locacoesObj[i]["area"][1] + locacoesObj[i]["area"][3]) {
+
+            indexObj = i - InicioBotoesCanvas;
+            preparaForm()
+        }
+    }
+}
+
+function preparaForm() {
+    floc.value = indexObj;
+    flocname.value = locacoesObj[indexObj]["nome"];
+    fprod.focus();
+    console.log(`Indice ${indexObj}, locaçao ${locacoesObj[indexObj]["nome"]} foi selecionado!`);
 }
 
 function statusRadioValue() {

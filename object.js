@@ -289,5 +289,25 @@ let locacoesObj = {
     69: {
       nome: "PLT02",
       area: [547,454,76,43],
+    },
+    70: {
+      nome: "BotãoPH10",
+      area: [86, 22, 74, 36],
+    },
+    71: {
+      nome: "BotãoPH20",
+      area: [258, 22, 74, 36],
+    },
+    72: {
+      nome: "BotãoPH30",
+      area: [431, 22, 74, 36],
+    },
+    73: {
+      nome: "BotãoPH40",
+      area: [601, 22, 74, 36],
+    },
+    74: {
+      nome: "BotãoPH50",
+      area: [774, 22, 74, 36],
     }
   }

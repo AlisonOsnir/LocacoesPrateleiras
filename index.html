@@ -15,7 +15,7 @@
 <body>
   <main>
     <h1>locações pth</h1>
-    <canvas class="backgroundimg" width="940" height="529">
+    <canvas class="backgrounding" width="940" height="529">
       your browser does not support HTML5 Canvas.
     </canvas>
 
@@ -68,6 +68,14 @@
     ctx.drawImage(background, 0, 0);
     ctx.drawImage(canvas2, 0, 0,);
   }
+//BOTAO PRATELEIRAS
+  ctx2.fillStyle = "rgba(200, 200, 200, 0.35)";
+  ctx2.fillRect(86, 22, 74, 36);
+  ctx2.fillRect(258, 22, 74, 36);
+  ctx2.fillRect(431, 22, 74, 36);
+  ctx2.fillRect(601, 22, 74, 36);
+  ctx2.fillRect(774, 22, 74, 36);
+  
 
   //INPUT_EVENTO FORMULÁRIO
   let form = document.getElementById("formulario");
@@ -90,5 +98,6 @@
 
   varreduraIndispStorage()
   canvas.onclick = selecionaArea;
+  //canvas.onclick = selecionaPrateleira;
 
 </script>
