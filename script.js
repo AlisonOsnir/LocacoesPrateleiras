@@ -1,6 +1,6 @@
 let indexObj;
-const colors = [['yellow'],['lightgreen'],['crimson']]
 let color;
+const colors = [['yellow'],['lightgreen'],['crimson']]
 const InicioBotoesCanvas = 70;
 const quantidadeBotoesCanvas = 5;
 
