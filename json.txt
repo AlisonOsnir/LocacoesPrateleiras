@@ -1,0 +1,1 @@
+{"locacao":"a20","codigo":"plm0000","status":"liberado"}
