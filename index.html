@@ -4,7 +4,7 @@
 <html lang="pt-br">
 
 <head>
-  <title>Locações e Registros PTH</title>
+  <title>Locações PTH</title>
   <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="style.css">
   <script src="object.js"></script>
@@ -33,7 +33,7 @@
 
       <fieldset>
         <legend id="labelstatus">status do material</legend>
-        <label for="radio-liberado"><input type="radio" class="radio" name="status" value="liberado" id="radio-liberado">
+        <label for="radio-liberado"><input type="radio" class="radio" name="status" value="liberado" >
           liberado</label>
         <label for="radio-producao"><input type="radio" class="radio"name="status" value="producao" id="radio-producao">
           produção</label>
@@ -73,20 +73,6 @@
     ctx.drawImage(background, 0, 0);
     ctx.drawImage(canvas2, 0, 0,);
   }
-
-//BOTAO PRATELEIRAS
-  ctx2.fillStyle = "rgba(200, 200, 200, 0.35)";
-  ctx2.fillRect(86, 22, 74, 36);
-  ctx2.fillRect(258, 22, 74, 36);
-  ctx2.fillRect(431, 22, 74, 36);
-  ctx2.fillRect(601, 22, 74, 36);
-  ctx2.fillRect(774, 22, 74, 36);
-  ctx2.strokeStyle = "grey";
-  ctx2.strokeRect(86, 22, 74, 36);
-  ctx2.strokeRect(258, 22, 74, 36);
-  ctx2.strokeRect(431, 22, 74, 36);
-  ctx2.strokeRect(601, 22, 74, 36);
-  ctx2.strokeRect(774, 22, 74, 36);
   
   //INPUT_EVENTO FORMULÁRIO
   let form = document.getElementById("formulario");
