@@ -1,99 +1,61 @@
 <!DOCTYPE html>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width">
 <html lang="pt-br">
 
 <head>
-  <title>Locações PTH</title>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Locação PTH</title>
+
   <link rel="stylesheet" href="reset.css">
   <link rel="stylesheet" href="style.css">
-  <script src="object.js"></script>
-  <script src="script.js"></script>
+  <script type="text/javascript" src="locacoes.js"></script>
 
 </head>
 
 <body>
-  <main>
+  <h1 class="titulo-principal">LOCAÇÕES PTH</h1>
 
-    <h1>locações pth</h1>
-    <canvas class="backgrounding" width="940" height="529">
-      your browser does not support HTML5 Canvas.
-    </canvas>
+  <div class="canvasImg-container">
+    <img src="estantes.png" width="940" height="529" class="canvasImg">
+    <canvas id="canvas" width="940" height="529" class="canvasImg">your browser does not support HTML5
+      Canvas.</canvas>
+  </div>
 
-    <p class="help-line">Selecione a locação e prencha o formulario!</p>
+  <p class="instruction-line">Selecione a locação e prencha o formulario!</p>
 
-    <form id="formulario">
-      <label for="floc" id="labelloc">Locação</label>
-      <input type="text" id="floc" name="floc" required>
-      <input type="text" id="flocname" name="flocname" readOnly=true onClick="alert('Selecione uma locação acima!')"
-        required>
+  <form class="form" id="form">
+    <label for="fLoc" class="form__label">Locação</label>
+    <input type="text" id="fLoc" name="fLoc" class="form__input" required>
 
-      <label for="fprod" id="labelcod">Cod. produto</label>
-      <input type="text" id="fprod" name="fprod" style='text-transform:uppercase'>
+    <label for="fCod" class="form__label">Código do produto</label>
+    <input type="text" id="fCod" name="fCod" class="form__input">
 
-      <fieldset>
-        <legend id="labelstatus">status do material</legend>
-        <label for="radio-liberado"><input type="radio" class="radio" name="status" value="liberado" >
-          liberado</label>
-        <label for="radio-producao"><input type="radio" class="radio"name="status" value="producao" id="radio-producao">
-          produção</label>
-        <label for="radio-parado"><input type="radio" class="radio"name="status" value="parado" id="radio-parado"> parado</label>
-      </fieldset>
+    <fieldset>
+      <legend class="form__label">Status do material</legend>
+      <div class="form__radio">
+        <input type="radio" id="fStatus-liberado" name="fStatus" class="form__radio-input" value="liberado">
+        <label for="fStatus-liberado" class="form__radio-label">Liberado</label>
+      </div>
 
-        <input type="submit" id="salvar" value="Salvar">
+      <div class="form__radio">
+        <input type="radio" id="fStatus-recebido" name="fStatus" class="form__radio-input" value="recebido">
+        <label for="fStatus-recebido" class="form__radio-label">Recebido</label>
+      </div>
 
+      <div class="form__radio">
+        <input type="radio" id="fStatus-parado" name="fStatus" class="form__radio-input" value="parado">
+        <label for="fStatus-parado" class="form__radio-label">Parado</label>
+      </div>
+    </fieldset>
 
-      <p>*Para remover salve sem cod. produto e status.</p>
-    </form>
-  </main>
+    <div class="form__btn">
+      <input type="submit" value="Enviar" class="form__btn-submit">
+    </div>
+
+  </form>
+  <script type="text/javascript" src="canvas.js"></script>
+  <script type="text/javascript" src="form.js"></script>
 </body>
 
 </html>
-
-<script>
-  const areasAB = 26;
-  const keyList = Object.keys(locacoesObj);
-  const indicesArmazenados = [];
-
-  screen.orientation.lock("landscape");
-
-  //CANVAS
-  var canvas = document.querySelector("canvas");
-  var ctx = canvas.getContext("2d");
-
-  var canvas2 = document.createElement('canvas')
-  canvas2.setAttribute("width", "940");
-  canvas2.setAttribute("height", "529");
-  var ctx2 = canvas2.getContext('2d');
-
-  var background = new Image();
-  background.src = "estantes.png";
-
-  background.onload = function () {
-    ctx.drawImage(background, 0, 0);
-    ctx.drawImage(canvas2, 0, 0,);
-  }
-  
-  //INPUT_EVENTO FORMULÁRIO
-  let form = document.getElementById("formulario");
-  let floc = document.getElementById("floc");
-  let flocname = document.getElementById("flocname");
-  let fprod = document.getElementById("fprod");
-  let fstatus = undefined;
-
-  form.addEventListener('submit', function (event) {
-    event.preventDefault()
-    statusRadioValue();
-    locacoesObj[indexObj]["produto"] = fprod.value.toUpperCase();
-    locacoesObj[indexObj]["status"] = fstatus;
-
-    let objArmazenado = JSON.stringify(locacoesObj[indexObj]);
-    localStorage.setItem(indexObj, objArmazenado);
-    window.location.reload();
-    window.scrollTo(0, 0)
-  });
-
-  varreduraIndispStorage()
-  canvas.onclick = selecionaArea;
-
-</script>
